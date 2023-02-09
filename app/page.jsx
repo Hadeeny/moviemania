@@ -9,6 +9,8 @@ export default async function Home() {
   const response = await data.json()
   return (
     <main >
+      
+      <div className='grid gap-16 grid-cols-fluid'>
       {response.results.map(movie=>(
         <Movie 
         title={movie.title}
@@ -18,6 +20,7 @@ export default async function Home() {
         release_date = {movie.release_date}
         />
       ))}
+      </div>
     </main>
   )
 }
