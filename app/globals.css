@@ -7,3 +7,14 @@
   padding: 0;
   margin: 0;
 }
+<<<<<<< HEAD
+=======
+
+html,
+body {
+  max-width: 100vw;
+  background: rgb(14, 13, 13);
+  color: white;
+  overflow-x: hidden;
+}
+>>>>>>> 433bd7f397ef9eb8b3d453e81aef6ef7c51c6c4e
