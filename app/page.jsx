@@ -19,7 +19,7 @@ export default async function Home() {
         <Movie  
         title={movie.Title}
         key={index}
-        id={index}
+        id={index} 
         poster_path={movie.CoverPhotoLink}
         release_date = {movie.UploadDate}
         />
