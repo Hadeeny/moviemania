@@ -2,25 +2,31 @@ import Movie from './Movie'
 // import { Montserrat } from '@next/font/google'
 
 // const inter = Montserrat({ subsets: ['latin'] })
-
 export default async function Home() {
+ 
   const data = await 
   fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}`)
   const response = await data.json()
+  const films = await fetch(
+    `https://tfvids-node.onrender.com/getData/?page=2&engine=nkiri,fzmovies`
+  )
+  const film = await films.json()
   return (
     <main >
       
       <div className='grid gap-16 grid-cols-fluid'>
-      {response.results.map(movie=>(
-        <Movie 
-        title={movie.title}
-        key={movie.id}
-        id={movie.id}
-        poster_path={movie.poster_path}
-        release_date = {movie.release_date}
+      {film.map((movie, index)=>(
+        <Movie  
+        title={movie.Title}
+        key={index}
+        id={index}
+        poster_path={movie.CoverPhotoLink}
+        release_date = {movie.UploadDate}
         />
-      ))}
+      ))} 
       </div>
+      <button >Next page</button>
     </main>
   )
 }
+// 2b45e9552b313fdbdc9b126c8ff304e7
