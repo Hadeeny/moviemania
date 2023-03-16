@@ -27,11 +27,10 @@ export default async function MovieDetail({ params }) {
   const film = await films.json()
   
   
-  const singleMovie = await film.find(movie => movie.Title === movieTitle);
-  console.log(singleMovie)
+  const singleMovie = await film.find(movie => movie.Index === movieTitle);
   return (
     <div>
-      <div>
+      {/* <div>
         <h1 className="text-2xl">{singleMovie.Title}</h1>
         <h2 className="text-lg">{singleMovie.Year}</h2>
         <h2 className="text-lg">Category: {singleMovie.Category}</h2>
@@ -48,7 +47,7 @@ export default async function MovieDetail({ params }) {
             Download
           </a>
         
-      </div>
+      </div> */}
     </div>
   );
 }
