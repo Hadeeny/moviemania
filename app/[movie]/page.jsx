@@ -21,15 +21,17 @@ export default async function MovieDetail({ params }) {
   const films = await fetch(
     `https://tfvids-node.onrender.com/getData/?page=2&engine=nkiri,fzmovies`
   )
+ 
 
 
   const film = await films.json()
   
+  // console.log(film)
   
-  const singleMovie = await film.find(({ Title }) => Title === movieTitle);
+  // const singleMovie = await film.find(({ Title }) => Title === movieTitle);
   return (
     <div>
-      <div>
+      {/* <div>
         <h1 className="text-2xl">{singleMovie.Title}</h1>
         <h2 className="text-lg">{singleMovie.Year}</h2>
         <h2 className="text-lg">Category: {singleMovie.Category}</h2>
@@ -48,7 +50,7 @@ export default async function MovieDetail({ params }) {
             Download
           </a>
         
-      </div>
+      </div> */}
     </div>
   );
 }
