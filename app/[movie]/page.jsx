@@ -28,11 +28,11 @@ export default async function MovieDetail({ params }) {
   
   
   const singleMovie = await film.find(movie => movie.Title === movieTitle);
-  const { Year, Size, Category, CoverPhotoLink, Description, DownloadLink} = await singleMovie
+  const { Title, Year, Size, Category, CoverPhotoLink, Description, DownloadLink} = await singleMovie
   return (
     <div>
       <div>
-        {/* <h1 className="text-2xl">{title}</h1> */}
+        <h1 className="text-2xl">{Title}</h1>
         <h2 className="text-lg">{Year}</h2>
         <h2 className="text-lg">Category: {Category}</h2>
         <h2 className="text-lg">Download Size: {Size}</h2>
