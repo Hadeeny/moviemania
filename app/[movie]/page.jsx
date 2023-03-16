@@ -28,7 +28,7 @@ export default async function MovieDetail({ params }) {
   
   
   const singleMovie = await film.find(movie => movie.Title === movieTitle);
-  const { Year, Size, Category, CoverPhotoLink, Description, DownloadLink} = singleMovie
+  const { Year, Size, Category, CoverPhotoLink, Description, DownloadLink} = await singleMovie
   return (
     <div>
       <div>
