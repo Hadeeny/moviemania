@@ -8,10 +8,10 @@ export default async function Home() {
   fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}`)
   const response = await data.json()
   const films = await fetch(
-    `https://tfvids-node.onrender.com/getData/?page=2&engine=nkiri,fzmovies`
+    `https://tfvids-node.onrender.com/getData/?page=1&engine=nkiri,fzmovies`
   )
   const film = await films.json()
-  return (
+  return ( 
     <main >
       
       <div className='grid gap-16 grid-cols-fluid'>

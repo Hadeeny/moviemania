@@ -19,7 +19,7 @@ export default async function MovieDetail({ params }) {
   const res = await data.json();
 
   const films = await fetch(
-    `https://tfvids-node.onrender.com/getData/?page=2&engine=nkiri,fzmovies`
+    `https://tfvids-node.onrender.com/getData/?page=1&engine=nkiri,fzmovies`
   )
  
 
