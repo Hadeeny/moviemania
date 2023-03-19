@@ -13,7 +13,7 @@ export default async function Home() {
       {film.map((movie, index)=>(
         <Movie  
         title={movie.Title}
-        key={index}
+        key={index} 
         id={index} 
         poster_path={movie.CoverPhotoLink}
         release_date = {movie.UploadDate}
