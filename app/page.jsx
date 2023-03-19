@@ -1,13 +1,9 @@
-import Movie from './Movie'
-// import { Montserrat } from '@next/font/google'
 
-// const inter = Montserrat({ subsets: ['latin'] })
+import Movie from './Movie'
+import Button from './Components/Button'
 export default async function Home() {
- 
-  const data = await 
-  fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}`)
-  const response = await data.json()
-  const films = await fetch(
+
+ const films = await fetch(
     `https://tfvids-node.onrender.com/getData/?page=1&engine=nkiri,fzmovies`
   )
   const film = await films.json()
@@ -25,7 +21,7 @@ export default async function Home() {
         />
       ))} 
       </div>
-      <button >Next page</button>
+      <Button/>
     </main>
   )
 }
