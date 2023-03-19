@@ -1,28 +1,25 @@
-import Link from 'next/link'
-// export async function generateStaticParams() {
-//   const data = await fetch(
-//     `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}`
-//   );
-//   const res = await data.json();
-//   return res.results.map((movie) => ({
-//     movie: toString(movie.id),
-//   })); 
-// }
-
-export default async function MovieDetail({ params }) {
+'use client'
+import {useState, useEffect} from 'react'
+export default function MovieDetail({ params }) {
+  const [single, setsingle] = useState([])
   const { movie } = params;
-  const movieTitle = movie.split('%20').join(' ')
+  const getSingle = async ()=>{
+    const movieTitle = movie.split('%20').join(' ')
   const films = await fetch(
     `https://tfvids-node.onrender.com/getData/?page=1&engine=nkiri,fzmovies`
   )
- 
- 
-
   const film = await films.json()
-  
-  
   const singleMovie = await film.find(movie => movie.Title === movieTitle);
-  const { Title, Year, Size, Category, CoverPhotoLink, Description, DownloadLink} =  singleMovie
+  setsingle(singleMovie)
+}
+
+useEffect(() => {
+  getSingle()
+}, [])
+
+const { Title, Year, Size, Category, CoverPhotoLink, Description, DownloadLink} =  single
+  
+  
   return (
     <div>
       <div>
