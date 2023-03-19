@@ -1,4 +1,4 @@
-
+import Header from '../component/Header'
 import Movie from './Movie'
 export default async function Home() {
 
@@ -8,7 +8,7 @@ export default async function Home() {
   const film = await films.json()
   return ( 
     <main >
-      
+      <Header/>
       <div className='grid gap-16 grid-cols-fluid'>
       {film.map((movie, index)=>(
         <Movie  
@@ -22,5 +22,4 @@ export default async function Home() {
       </div>
     </main>
   )
-}
-// 2b45e9552b313fdbdc9b126c8ff304e7
+} 

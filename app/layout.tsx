@@ -1,6 +1,7 @@
 import './globals.css'
 import { Poppins } from '@next/font/google'
 import Link from 'next/link'
+import Header from '../component/Header'
 export default function RootLayout({
   children,
 }: {
@@ -14,9 +15,7 @@ export default function RootLayout({
       */}
       <head />
       <body className={`my-12 mx-[2rem]`}>
-      <Link href={'/'}>
-      <h1 className='text-3xl md:text-5xl text-green-500 my-8'>Movie<span className='text-cyan-700'>Mania</span></h1>
-      </Link>
+      {/* <Header /> */}
         {children}</body>
     </html>
   )

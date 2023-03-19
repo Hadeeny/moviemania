@@ -1,25 +1,14 @@
-'use client'
-import {useState, useEffect} from 'react'
-export default function MovieDetail({ params }) {
-  const [single, setsingle] = useState([])
+export default async function MovieDetail({ params }) {
   const { movie } = params;
-  const getSingle = async ()=>{
-    const movieTitle = movie.split('%20').join(' ')
-  const films = await fetch(
-    `https://tfvids-node.onrender.com/getData/?page=1&engine=nkiri,fzmovies`
-  )
+ 
+  const movieTitle = movie.split('%20').join(' ')
+  const films = await fetch(`https://tfvids-node.onrender.com/getData/?page=1&engine=nkiri,fzmovies`)
   const film = await films.json()
   const singleMovie = await film.find(movie => movie.Title === movieTitle);
-  setsingle(singleMovie)
-}
-
-useEffect(() => {
-  getSingle()
-}, [])
-
-const { Title, Year, Size, Category, CoverPhotoLink, Description, DownloadLink} =  single
+ 
+const { Title, Year, Size, Category, CoverPhotoLink, Description, DownloadLink} =  singleMovie
   
-  
+   
   return (
     <div>
       <div>
