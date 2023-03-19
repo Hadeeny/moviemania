@@ -1,6 +1,5 @@
 
 import Movie from './Movie'
-import Button from './Components/Button'
 export default async function Home() {
 
  const films = await fetch(
@@ -21,7 +20,6 @@ export default async function Home() {
         />
       ))} 
       </div>
-      <Button/>
     </main>
   )
 }

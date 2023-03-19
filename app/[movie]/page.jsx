@@ -12,17 +12,11 @@ import Link from 'next/link'
 export default async function MovieDetail({ params }) {
   const { movie } = params;
   const movieTitle = movie.split('%20').join(' ')
-  const imagePath = "https://image.tmdb.org/t/p/original/";
-  const data = await fetch(
-    `https://api.themoviedb.org/3/movie/${movie}?api_key=${process.env.API_KEY}`
-  );
-  const res = await data.json();
-
   const films = await fetch(
     `https://tfvids-node.onrender.com/getData/?page=1&engine=nkiri,fzmovies`
   )
  
-
+ 
 
   const film = await films.json()
   
