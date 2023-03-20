@@ -11,7 +11,7 @@ export default async function MovieDetail({ params }) {
    
   return ( 
     <div className="mt-[4rem] w-full md:w-1/3 mx-auto text-center flex flex-col justify-center">
-      <div>
+      {/* <div>
         <h1 className="text-2xl">{singleMovie.Title}</h1>
         <h2 className="text-lg">{singleMovie.Year}</h2>
         <h2 className="text-lg">Category: {singleMovie.Category}</h2>
@@ -27,7 +27,7 @@ export default async function MovieDetail({ params }) {
             Download
           </a>
         
-      </div>
+      </div> */}
     </div>
   );
 }
