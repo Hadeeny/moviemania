@@ -6,7 +6,7 @@ export default async function Home() {
   )
   const film = await films.json()
   return ( 
-      <>
+      <> 
         {/* <Header/> */}
     <main className='mt-[4rem]'>
       <h2 className='text-xl font-semibold py-2'>Trending movies (latest)</h2>
