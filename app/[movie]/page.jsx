@@ -2,10 +2,13 @@ export default async function MovieDetail({ params }) {
   const { movie } = params;
  
   const movieTitle = movie.split('%20').join(' ')
-  const films = await fetch(`https://tfvids-node.onrender.com/getData/?page=1&engine=nkiri,fzmovies`)
-  const film = await films.json()
-  const singleMovie = film.find(movie => movie.Title === movieTitle);
- return singleMovie
+  const response = await fetch(`https://tfvids-node.onrender.com/getData/?page=1&engine=nkiri,fzmovies`)
+  const data = await response.json()
+  const singleMovie=  data.find(movie => movie.Title === movieTitle)
+  console.log(singleMovie)
+  // if(typeof(film)!== 'undefined' ){
+  // }
+ 
 // const { Title, Year, Size, Category, CoverPhotoLink, Description, DownloadLink} =  singleMovie
   
    
