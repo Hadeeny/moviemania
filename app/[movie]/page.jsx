@@ -11,7 +11,7 @@ export default async function MovieDetail({ params }) {
     
   return ( 
     <div className="mt-[4rem] w-full md:w-1/3 mx-auto text-center flex flex-col justify-center">
-      {singleMovie !== 'undefined' && (
+      {singleMovie !== 'undefined' ? (
         <>
           <div>
         <h1 className="text-2xl">{singleMovie.Title}</h1>
@@ -31,7 +31,7 @@ export default async function MovieDetail({ params }) {
         
       </div>
         </>
-      )}
+      ): ''}
     </div>
   );
 }
