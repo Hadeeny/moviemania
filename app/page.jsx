@@ -1,4 +1,3 @@
-import Header from '../component/Header'
 import Movie from './Movie'
 export default async function Home() {
 
@@ -7,8 +6,10 @@ export default async function Home() {
   )
   const film = await films.json()
   return ( 
-    <main >
-      <Header/>
+      <>
+        {/* <Header/> */}
+    <main className='mt-[4rem]'>
+      <h2 className='text-xl font-semibold py-2'>Trending movies (latest)</h2>
       <div className='grid gap-16 grid-cols-fluid'>
       {film.map((movie, index)=>(
         <Movie  
@@ -21,5 +22,6 @@ export default async function Home() {
       ))} 
       </div>
     </main>
+      </>
   )
 } 

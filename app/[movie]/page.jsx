@@ -6,25 +6,24 @@ export default async function MovieDetail({ params }) {
   const film = await films.json()
   const singleMovie = await film.find(movie => movie.Title === movieTitle);
  
-const { Title, Year, Size, Category, CoverPhotoLink, Description, DownloadLink} =  singleMovie
+// const { Title, Year, Size, Category, CoverPhotoLink, Description, DownloadLink} =  singleMovie
   
    
-  return (
-    <div>
+  return ( 
+    <div className="mt-[4rem] w-full md:w-1/3 mx-auto text-center flex flex-col justify-center">
       <div>
-        <h1 className="text-2xl">{Title}</h1>
-        <h2 className="text-lg">{Year}</h2>
-        <h2 className="text-lg">Category: {Category}</h2>
-        <h2 className="text-lg">Download Size: {Size}</h2>
+        <h1 className="text-2xl">{singleMovie.Title}</h1>
+        <h2 className="text-lg">{singleMovie.Year}</h2>
+        <h2 className="text-lg">Category: {singleMovie.Category}</h2>
+        <h2 className="text-lg">Download Size: {singleMovie.Size}</h2>
         <div className="my-12 w-full">
           <img
-            width="1000px"
-            height="1000px"
-            src={CoverPhotoLink}
+          className="w-[14rem] mx-auto"
+            src={singleMovie.CoverPhotoLink}
           />
         </div>
-        <p>{Description}</p>
-          <a href={DownloadLink} target="_blank" className="bg-green-400 px-4 py-1 text-sm rounded-md inline-block">
+        <p className="mb-4">{singleMovie.Description}</p>
+          <a href={singleMovie.DownloadLink} target="_blank" className="bg-green-400 px-6 py-2 text-sm rounded-md inline-block">
             Download
           </a>
         
