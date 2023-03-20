@@ -6,8 +6,8 @@ export default async function page({params}) {
   const {searchquery }= params
   const response = await fetch(`https://tfvids.onrender.com/search?query=${searchquery}&engine=fzmovies`)
   const data = await response.json()
-  // console.log(data)
-  // console.log(searchquery)
+  
+  console.log(data)
   
   return ( 
     <div className='mt-[4rem]'> 

@@ -13,8 +13,8 @@ export default async function Home() {
       <div className='grid gap-16 grid-cols-fluid'>
       {film.map((movie, index)=>(
         <Movie  
-        title={movie.Title}
-        key={index} 
+        title={movie.Title} 
+        key={index}
         id={index} 
         poster_path={movie.CoverPhotoLink}
         release_date = {movie.UploadDate}
