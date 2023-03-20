@@ -5,10 +5,7 @@ export default async function MovieDetail({ params }) {
   const response = await fetch(`https://tfvids-node.onrender.com/getData/?page=1&engine=nkiri,fzmovies`)
   const data = await response.json()
   const singleMovie=  data.find(movie => movie.Title === movieTitle)
-  console.log(singleMovie)
-  // if(typeof(film)!== 'undefined' ){
-  // }
- 
+
 // const { Title, Year, Size, Category, CoverPhotoLink, Description, DownloadLink} =  singleMovie
   
     
