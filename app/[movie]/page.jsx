@@ -4,7 +4,7 @@ export default async function MovieDetail({ params }) {
   const movieTitle = movie.split('%20').join(' ')
   const films = await fetch(`https://tfvids-node.onrender.com/getData/?page=1&engine=nkiri,fzmovies`)
   const film = await films.json()
-  const singleMovie = await film.find(movie => movie.Title === movieTitle);
+  const singleMovie = film.find(movie => movie.Title === movieTitle);
  
 // const { Title, Year, Size, Category, CoverPhotoLink, Description, DownloadLink} =  singleMovie
   
