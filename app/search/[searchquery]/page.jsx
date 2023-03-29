@@ -27,7 +27,7 @@ export default async function page({params}) {
           </a>
           <p>{movie.Category}</p> 
           <p>{movie.Size}</p> 
-          <a href={movie.DownloadLink} target="_blank" className='bg-green-400 flex justify-center py-1 w-[10rem] rounded'>
+          <a href={movie.DownloadLink} target="_blank" className='bg-green-400 flex justify-center py-1 w-[10rem] rounded' download>
             <span>Download</span>
             {/* <img src={vercel} alt='download'/> */}
           </a>
