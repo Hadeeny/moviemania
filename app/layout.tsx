@@ -1,13 +1,14 @@
-import './globals.css'
-import { Poppins } from '@next/font/google'
-import Link from 'next/link'
-import Header from '../components/Header'
+import "./globals.css";
+import { Poppins } from "@next/font/google";
+import Link from "next/link";
+import Header from "../components/Header";
+import { DataContextProvider } from "./context/data";
 // import Wrapper from './Wrapper'
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
@@ -17,11 +18,11 @@ export default function RootLayout({
       */}
       <head />
       <body className={`my-12 mx-[2rem]`}>
-        {/* <Wrapper> */}
-          <Header />
-          {children}
-        {/* </Wrapper> */}
+        {/* <DataContextProvider> */}
+        <Header />
+        {children}
+        {/* </DataContextProvider> */}
       </body>
     </html>
-  )
+  );
 }
