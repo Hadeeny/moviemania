@@ -2,10 +2,12 @@
 import React from "react";
 import { useStore } from "../store";
 
-const SingleMovie = ({ title }) => {
-  const { movieStore } = useStore();
+const SingleMovie = () => {
+  const { movieStore, title } = useStore();
+  const movieTitle = title.split("%20").join(" ");
+  console.log(movieTitle);
 
-  const singleMovie = movieStore.find((movie) => movie.Title == title);
+  const singleMovie = movieStore.find((movie) => movie.Title == movieTitle);
   return (
     <div>
       <h1 className="text-2xl">{singleMovie.Title}</h1>
