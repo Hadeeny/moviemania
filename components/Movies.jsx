@@ -2,8 +2,8 @@
 import { useStore } from "../store";
 import Movie from "../app/Movie";
 const Movies = ({ film }) => {
-  const { kdramas, addDrama } = useStore();
-  addDrama(film);
+  const { movieStore, addToStore } = useStore();
+  addToStore(film);
   return (
     <>
       {film.map((movie, index) => (

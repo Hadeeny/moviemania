@@ -3,9 +3,9 @@ import React from "react";
 import { useStore } from "../store";
 
 const SingleMovie = ({ title }) => {
-  const { kdramas, addDrama } = useStore();
+  const { movieStore } = useStore();
 
-  const singleMovie = kdramas.find((movie) => movie.Title == title);
+  const singleMovie = movieStore.find((movie) => movie.Title == title);
   return (
     <div>
       <h1 className="text-2xl">{singleMovie.Title}</h1>

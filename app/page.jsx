@@ -1,4 +1,3 @@
-import { useStore } from "../store";
 import Movies from "../components/Movies";
 export default async function Home() {
   const films = await fetch(
