@@ -95,8 +95,7 @@ const Header = () => {
               setToggleMenu(!toggleMenu);
             }}
           >
-            X{/* <Image width={100} height={100} src={close} /> */}
-            {/* close */}
+            X
           </div>
         </div>
         {/* mobile nav item */}
