@@ -7,18 +7,19 @@ const Movie = ({ title, poster_path, id, release_date, film }) => {
   const { getTitle } = useStore();
   return (
     <div>
-      <h1>{title}</h1>
-      <h2>{release_date}</h2>
-
       <Link href={`/${title}`}>
         <img
-          // onClick={getTitle(title)}
           src={poster_path}
+          className="rounded-md"
           width="800px"
           height="800px"
           alt={title}
         />
       </Link>
+      <div className="flex  justify-between my-4">
+        <h1>{title}</h1>
+        <h2 className="text-yellow-300">{release_date}</h2>
+      </div>
     </div>
   );
 };

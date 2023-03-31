@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { useStore } from "../store";
+import Image from "next/image";
 
 const SingleMovie = ({ title }) => {
   const { movieStore } = useStore();
@@ -8,24 +9,47 @@ const SingleMovie = ({ title }) => {
 
   if ((movieStore !== null || undefined) && movieStore.length !== 0) {
     const singleMovie = movieStore.find((movie) => movie.Title == movieTitle);
+    const { Title, Category, Year, CoverPhotoLink, Description, DownloadLink } =
+      singleMovie;
     return (
-      <div>
-        <h1 className="text-2xl">{singleMovie.Title}</h1>
-        <h2 className="text-lg">{singleMovie.Year}</h2>
-        <h2 className="text-lg">Category: {singleMovie.Category}</h2>
-        <h2 className="text-lg">Download Size: {singleMovie.Size}</h2>
-        <div className="my-12 w-full">
-          <img className="w-[14rem] mx-auto" src={singleMovie.CoverPhotoLink} />
+      <div className="flex flex-col gap-y-6 mb-8 md:flex-row">
+        <div className="w-full px-6 md:w-1/4">
+          <Image
+            width={1000}
+            height={1000}
+            className="rounded-md"
+            alt={Title}
+            src={CoverPhotoLink}
+          />
         </div>
-        <p className="mb-4">{singleMovie.Description}</p>
-        <a
-          download
-          href={singleMovie.DownloadLink}
-          target="_blank"
-          className="bg-green-400 px-6 py-2 text-sm rounded-md inline-block"
-        >
-          Download
-        </a>
+        <div className="w-full flex flex-col items-start gap-y-4 text-left px-8 md:w-2/3">
+          <h3 className="text-xl md:text3xl font-bold text-yellow-300">
+            New Movie
+          </h3>
+          <h3 className="text-3xl font-bold md:text-[3rem]">{Title}</h3>
+          <div className="flex space-x-4 items-center">
+            <div className="flex space-x-2 items-center font-bold">
+              <div className="px-2 py-1 bg-white text-black uppercase">
+                pg 16
+              </div>
+              <div className="border-4 uppercase border-white px-2 py-0.5">
+                hd
+              </div>
+            </div>
+            <div className="font-bold">Comedy, Movies</div>
+            <div className="text-yellow-300 font-bold">{Year}</div>
+          </div>
+          <p className="max-w-xl text-lg text-gray-200 font-semibold">
+            {Description}
+          </p>
+          <a
+            target="_blank"
+            href={DownloadLink}
+            className="px-[4rem] py-[1rem] md:py-[1.4rem] rounded-md bg-yellow-300 text-xl font-semibold text-black"
+          >
+            Download
+          </a>
+        </div>
       </div>
     );
   }

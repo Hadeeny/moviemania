@@ -1,4 +1,5 @@
 import Movies from "../components/Movies";
+import Hero from "../components/Hero";
 
 async function getData() {
   // const res = await fetch('https://api.example.com/...');
@@ -19,9 +20,12 @@ export default async function Home() {
   return (
     <>
       {/* <Header/> */}
-      <main className="mt-[4rem]">
-        <h2 className="text-xl font-semibold py-2">Trending movies (latest)</h2>
-        <div className="grid gap-16 grid-cols-fluid">
+      <main className="">
+        <Hero />
+        <h2 className="text-3xl md:text-[3rem] pb-10 text-center font-bold">
+          Trending movies (latest)
+        </h2>
+        <div className="grid px-8 gap-16 grid-cols-fluid">
           <Movies film={films} />
         </div>
       </main>

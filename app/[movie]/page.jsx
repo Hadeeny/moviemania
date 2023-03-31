@@ -16,7 +16,7 @@ export default async function MovieDetail({ params }) {
 
   const movieTitle = movie.split("%20").join(" ");
   return (
-    <div className="mt-[4rem] w-full md:w-1/3 mx-auto text-center flex flex-col justify-center">
+    <div className="mt-[8rem]">
       <SingleMovie title={movieTitle} />
     </div>
   );
