@@ -19,7 +19,7 @@ export default function RootLayout({
       <head />
       <body>
         {/* <DataContextProvider> */}
-        <Header />
+        <Header /> 
         {children}
         {/* </DataContextProvider> */}
       </body>
