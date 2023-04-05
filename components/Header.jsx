@@ -1,7 +1,7 @@
 "use client";
 import { FaSearch } from "react-icons/fa";
 import movie from "../images/movie.svg";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import close from "../images/cancel1.svg";
 import Link from "next/link";
 import Image from "next/image";
@@ -9,10 +9,13 @@ const Header = () => {
   const [query, setQuery] = useState("");
   const [showSearch, setShowSearch] = useState(false);
   const [toggleMenu, setToggleMenu] = useState(false);
+
+  const inputRef = useRef(null)
   const handleSearch = ()=>{
     setShowSearch(!showSearch)
   }
   console.log(query)
+
   return (
     <div>
       <header className="w-full bg-transparent z-[500] absolute py-8 px-4 md:px-24">
