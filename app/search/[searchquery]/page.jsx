@@ -1,35 +1,31 @@
 "use client";
-import Link from 'next/link'
-import React, {useEffect} from "react";
+import Link from "next/link";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import useSWR from "swr";
 import { BiTime } from "react-icons/bi";
 import { useStore } from "../../../store";
 
-
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 const search = ({ params }) => {
- const { addToResults } = useStore();
+  const { addToResults } = useStore();
   const { searchquery } = params;
   const decodedTitle = decodeURI(searchquery);
   const { data, error, isLoading } = useSWR(
     `https://tfvids.onrender.com/search?query=${searchquery}&engine=nkiri`,
     fetcher
   );
-  if (error) return <p>An error has occured</p>;
-  if (isLoading){
-      return (
-        <div className="mt-[8rem]">
-          <p className="text-center">Loading...</p>
-        </div>
-      )} else if (data)[
-        addToResults(data)
-      ]
+
   return (
     <>
       <div className="mt-[8rem]">
-        {data.length <= 1 ? (
+        {isLoading && (
+          <div className="mt-[8rem]">
+            <p className="text-center">Loading...</p>
+          </div>
+        )}
+        {data && data.length <= 1 ? (
           <div className="text-center text-gray-400">
             sorry ☹ no results were found for:{" "}
             <span className="text-red-300">{searchquery}</span>, please try a
@@ -71,7 +67,10 @@ const search = ({ params }) => {
                           <div>Admin</div>
                           <div>No Comment</div>
                         </div>
-                        <Link href={`/singlemovie/${i}`} className="text-yellow-400 font-bold">
+                        <Link
+                          href={`/singlemovie/${i}`}
+                          className="text-yellow-400 font-bold"
+                        >
                           Learn More
                         </Link>
                       </div>
