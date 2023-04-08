@@ -5,16 +5,23 @@ export const useStore = create((set) => ({
   movieStore: [],
   resultStore: [],
   title: "",
+  searchQuery: "",
   addToStore: (payload) =>
     set(
       produce((draft) => {
         draft.movieStore = payload;
       })
     ),
-    addToResults: (payload) =>
+  addToResults: (payload) =>
     set(
       produce((draft) => {
         draft.resultStore = payload;
+      })
+    ),
+  getQuery: (payload) =>
+    set(
+      produce((draft) => {
+        draft.searchQuery = payload;
       })
     ),
   getTitle: (payload) =>

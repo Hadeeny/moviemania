@@ -11,7 +11,7 @@ export default function page({ params }) {
     const result = resultStore[index];
     const { Title, DownloadLink, CoverPhotoLink, Year, Description } = result;
     return (
-      <div className="flex mt-[8rem] flex-col gap-y-6 mb-8 md:flex-row">
+      <div className="flex mt-[10rem] flex-col gap-y-6 mb-8 md:flex-row">
         <div className="w-full px-6 md:w-1/4">
           <Image
             width={1000}
@@ -25,7 +25,9 @@ export default function page({ params }) {
           <h3 className="text-xl md:text3xl font-bold text-yellow-300">
             New Movie
           </h3>
-          <h3 className="text-3xl font-bold md:text-[3rem]">{Title}</h3>
+          <h3 className="text-3xl font-bold md:text-[3rem]">
+            {Title.split("_").join(" ")}
+          </h3>
           <div className="flex space-x-4 items-center">
             <div className="flex space-x-2 items-center font-bold">
               <div className="px-2 py-1 bg-white text-black uppercase">
@@ -35,7 +37,7 @@ export default function page({ params }) {
                 hd
               </div>
             </div>
-            <div className="font-bold">Comedy, Movies</div>
+            <div className="font-bold">Movies</div>
             <div className="text-yellow-300 font-bold">{Year}</div>
           </div>
           <p className="max-w-xl text-lg text-gray-200 font-semibold">

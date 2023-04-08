@@ -5,6 +5,7 @@ import Image from "next/image";
 import useSWR from "swr";
 import { BiTime } from "react-icons/bi";
 import { useStore } from "../../../store";
+import Searchbar from "@/components/Searchbar";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
@@ -19,7 +20,7 @@ const search = ({ params }) => {
 
   if (isLoading) {
     return (
-      <div className="mt-[8rem] flex justify-center overflow-hidden">
+      <div className="mt-[10rem] flex justify-center overflow-hidden">
         <div className="w-12 h-12 border-4 overflow-hidden border-b-transparent rounded-full animate-spin border-white"></div>
       </div>
     );
@@ -29,9 +30,9 @@ const search = ({ params }) => {
     addToResults(data);
     return (
       <>
-        <div className="flex px-4 mt-[8rem] justify-center md:justify-between">
+        <div className="flex px-4 mt-[10rem] md:mt-[12rem] justify-center md:justify-between">
           <div className="flex w-full lg:w-2/3 gap-y-8 flex-col">
-            <div className="py-8 rounded-md bg-[#1f1e24] px-6 font-bold text-2xl">
+            <div className="py-4 md:py-8 rounded-md bg-[#1f1e24] px-6 font-bold text-xl md:text-2xl">
               Showing <span className="text-yellow-400">{data.length}</span>{" "}
               Results for: {decodedTitle}
             </div>
@@ -41,21 +42,24 @@ const search = ({ params }) => {
                 key={i}
               >
                 <div>
-                  <Image
-                    className="rounded-md"
-                    width={500}
-                    height={500}
-                    src={movie.CoverPhotoLink}
-                  />
+                  <Link href={`/singlemovie/${i}`}>
+                    <Image
+                      className="rounded-md"
+                      width={500}
+                      height={500}
+                      alt={movie.Title}
+                      src={movie.CoverPhotoLink}
+                    />
+                  </Link>
                 </div>
                 <div className="px-6 space-y-4">
                   <div className="flex items-center space-x-4">
                     <BiTime color="rgb(250 204 21)" /> <p>{movie.Year}</p>
                   </div>
-                  <h3 className="text-white font-bold text-3xl">
-                    {movie.Title}
+                  <h3 className="text-white font-bold text-xl md:text-3xl">
+                    {movie.Title.split("_").join(" ")}
                   </h3>
-                  <p className="font-normal text-lg text-gray-400">
+                  <p className="font-normal h-[10rem] text-clip overflow-hidden text-lg text-gray-400">
                     {movie.Description}
                   </p>
                   <div className="border-t-4 flex justify-between items-center py-6 border-black">
@@ -82,9 +86,8 @@ const search = ({ params }) => {
                 </div>
                 <div className="w-[4rem] bg-yellow-400 h-1" />
               </div>
-              <div className="w-10/12 mx-auto flex">
-                <input className="px-4 bg-[#393939] outline-none text-white w-10/12 h-[3rem]" />
-                <div className="w-2/12 bg-yellow-400 h-[3rem]"></div>
+              <div className="w-10/12 mx-auto">
+                <Searchbar />
               </div>
             </div>
           </div>

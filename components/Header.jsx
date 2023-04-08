@@ -1,20 +1,28 @@
 "use client";
 import { FaSearch } from "react-icons/fa";
-import movie from "../images/movie.svg";
+import { useStore } from "../store";
+import { useRouter } from "next/navigation";
 import React, { useState, useEffect, useRef } from "react";
 import close from "../images/cancel1.svg";
 import Link from "next/link";
 import Image from "next/image";
+import Searchbar from "@/components/Searchbar";
 const Header = () => {
+  const router = useRouter();
+  const { getQuery } = useStore();
   const [query, setQuery] = useState("");
   const [showSearch, setShowSearch] = useState(false);
   const [toggleMenu, setToggleMenu] = useState(false);
 
-  const inputRef = useRef(null)
-  const handleSearch = ()=>{
-    setShowSearch(!showSearch)
-  }
-  console.log(query)
+  const inputRef = useRef(null);
+  const handleSearch = () => {
+    setShowSearch(!showSearch);
+  };
+
+  const searchMovie = () => {
+    getQuery(query);
+    router.push(`/search/${query}`);
+  };
 
   return (
     <div>
@@ -49,10 +57,7 @@ const Header = () => {
             </li>
             <li>
               <div className="relative  cursor-pointer group uppercase focus:underline">
-                <FaSearch
-                  onClick={handleSearch}
-                  color="rgb(250 204 21) "
-                />
+                <FaSearch onClick={handleSearch} color="rgb(250 204 21) " />
               </div>
             </li>
           </ul>
@@ -67,6 +72,9 @@ const Header = () => {
             <div className="bg-white my-1 w-8 h-1" />
             <div className="bg-white w-8 h-1" />
           </div>
+        </div>
+        <div className="w-full block mt-[1rem] md:hidden">
+          <Searchbar />
         </div>
       </header>
       {/* Mobile Menu */}
@@ -136,18 +144,26 @@ const Header = () => {
         </ul>
       </div>
       {showSearch && (
-        <div className='fixed top-0 bottom-0 left-0 backdrop-blur-md right-0 bg-black/80 z-[1] outer'>
-          <div className='middle'>
-            <div className='flex items-center justify-center'>
-              <input 
-              type='text'
-              onChange={(e)=>{setQuery(e.target.value)}}
-              placeholder='Search Movies' 
-              className={`w-10/12 md:w-1/2 duration-500 p-2 text-xl bg-transparent outline-none border-b border-white`}
+        <div className="fixed top-0 bottom-0 left-0 backdrop-blur-md right-0 bg-black/80 z-[1] outer">
+          <div className="middle">
+            <div className="flex items-center justify-center">
+              <input
+                type="text"
+                onChange={(e) => {
+                  setQuery(e.target.value);
+                }}
+                placeholder="Search Movies"
+                className={`w-10/12 md:w-1/2 duration-500 p-2 text-xl bg-transparent outline-none border-b border-white`}
               />
-              <Link href={`/search/${query}`}>
-                <FaSearch onClick={()=>{setShowSearch(false)}} className='cursor-pointer w-6 h-6'/>
-              </Link>
+              <div>
+                <FaSearch
+                  onClick={() => {
+                    setShowSearch(false);
+                    searchMovie();
+                  }}
+                  className="cursor-pointer w-6 h-6"
+                />
+              </div>
             </div>
           </div>
         </div>
