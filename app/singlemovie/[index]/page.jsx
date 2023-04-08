@@ -7,7 +7,7 @@ export default function page({ params }) {
   const { resultStore } = useStore();
   const { index } = params;
 
-  if (resultStore !== undefined) {
+  if ((resultStore !== null || undefined) && resultStore.length !== 0) {
     const result = resultStore[index];
     const { Title, DownloadLink, CoverPhotoLink, Year, Description } = result;
     return (
