@@ -18,14 +18,18 @@ const search = ({ params }) => {
   );
 
   if (isLoading) {
-    return <p>Loading</p>;
+    return (
+      <div className="mt-[8rem] flex justify-center overflow-hidden">
+        <div className="w-12 h-12 border-4 overflow-hidden border-b-transparent rounded-full animate-spin border-white"></div>
+      </div>
+    );
   }
 
   if (data) {
     addToResults(data);
     return (
       <>
-        <div className="flex px-4 justify-center md:justify-between">
+        <div className="flex px-4 mt-[8rem] justify-center md:justify-between">
           <div className="flex w-full lg:w-2/3 gap-y-8 flex-col">
             <div className="py-8 rounded-md bg-[#1f1e24] px-6 font-bold text-2xl">
               Showing <span className="text-yellow-400">{data.length}</span>{" "}
