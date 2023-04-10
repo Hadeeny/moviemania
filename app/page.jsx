@@ -22,7 +22,7 @@ export default async function Home() {
       {/* <Header/> */}
       <main className="">
         <Hero />
-        <h2 className="text-3xl md:text-[3rem] pb-10 text-center font-bold">
+        <h2 className="text-3xl md:text-[3rem] text-gray-100 py-[2rem] md:py-[4rem] text-center font-bold">
           Trending movies (latest)
         </h2>
         <div className="grid px-8 gap-16 grid-cols-fluid">
