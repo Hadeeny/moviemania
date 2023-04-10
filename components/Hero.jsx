@@ -30,19 +30,12 @@ const Hero = () => {
     } else changeMovie(0);
   };
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     swipeRightClickHandler();
-  //   }, 3000);
-  //   return () => clearInterval(interval);
-  // }, []);
-
   useEffect(() => {
     const interval = setInterval(() => {
       if (currentMovie < movies.length - 1) {
         changeMovie(currentMovie + 1);
       } else changeMovie(0);
-    }, 4000);
+    }, 6000);
 
     return () => clearInterval(interval);
   }, [currentMovie]);
