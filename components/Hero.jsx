@@ -42,7 +42,7 @@ const Hero = () => {
   return (
     <div
       className="relative h-[40rem] overflow-hidden lg:h-[50rem] 
-    rounded-2xl md:rounded-3xl"
+    rounded-b-[3rem]"
     >
       <div className="absolute top-0 left-0 z-10 h-full w-full px-5 pt-16 sm:px-8 sm:pt-16 md:px-20 lg:pt-40 xl:px-24">
         <div className="pt-[8rem] md:pt-0">
@@ -82,7 +82,7 @@ const Hero = () => {
             <img
               width="1440"
               height="838"
-              className="h-full w-full object-cover"
+              className="h-full opacity-10 w-full object-cover"
               src={movie.CoverPhotoLink}
               alt="movies"
               sizes="100vw"

@@ -13,10 +13,11 @@ const SingleMovie = ({ title }) => {
       singleMovie;
     return (
       <div className="flex flex-col gap-y-6 mb-8 md:flex-row">
-        <div className="w-full px-6 md:w-1/4">
+        <div className="w-full px-6 md:w-1/3">
           <Image
-            width={1000}
-            height={1000}
+            priority
+            width={2000}
+            height={2000}
             className="rounded-md"
             alt={Title}
             src={CoverPhotoLink}

@@ -80,8 +80,8 @@ const Header = () => {
       {/* Mobile Menu */}
       <div
         className={`fixed top-0 h-screen ${
-          toggleMenu ? "left-0" : "left-full"
-        } w-screen p-6 bg-[#16151b] z-[4000] duration-600 md:hidden`}
+          toggleMenu ? "clip-active" : "clip-inactive"
+        } w-screen p-6 bg-[#16151b] z-[4000] duration-700 md:hidden`}
       >
         <div className="flex justify-between">
           <Link href={"/"}>
