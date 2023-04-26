@@ -85,24 +85,27 @@ const Header = () => {
       >
         <div className="flex justify-between">
           <Link href={"/"}>
-            <h1 className="uppercase font-bold text-2xl">Moviemania.</h1>
+            <h1 className="uppercase text-yellow-400 font-bold text-2xl">
+              Moviemania.
+            </h1>
           </Link>
           <div
-            className="text-white text-3xl uppercase cursor-pointer"
+            className="w-8 justify-center flex -space-y-1 flex-col items-center h-8 border rounded-md cursor-pointer"
             onClick={() => {
               setToggleMenu(!toggleMenu);
             }}
           >
-            X
+            <div className="w-6 rotate-45 h-1 bg-white" />
+            <div className="w-6 h-1 -rotate-45 bg-white" />
           </div>
         </div>
-        <ul className="space-y-8 mt-10">
+        <ul className="space-y-8 font-bold mt-10">
           <li>
             <Link
               onClick={() => {
                 setToggleMenu(!toggleMenu);
               }}
-              className="text-2xl"
+              className="uppercase text-2xl"
               href={"/"}
             >
               Home
@@ -136,7 +139,7 @@ const Header = () => {
                 setToggleMenu(!toggleMenu);
               }}
               className="uppercase text-2xl"
-              href={"/drops"}
+              href={"/"}
             >
               Search
             </Link>
